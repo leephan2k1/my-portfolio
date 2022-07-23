@@ -1,15 +1,10 @@
 import { motion } from 'framer-motion';
-import React, { useEffect } from 'react';
 import { useTheme } from 'next-themes';
 
 import { SunIcon, MoonIcon } from '@heroicons/react/outline';
 
 export default function ToggleTheme() {
     const { theme, setTheme } = useTheme();
-
-    useEffect(() => {
-        console.log('::: ', theme);
-    }, []);
 
     return (
         <motion.button

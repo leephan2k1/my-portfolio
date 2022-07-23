@@ -4,8 +4,8 @@ import { ThemeProvider } from 'next-themes';
 import { ReactElement, ReactNode } from 'react';
 import MainLayout from '~/components/layouts/MainLayout';
 
-import type { AppProps } from 'next/app';
 import type { NextPage } from 'next';
+import type { AppProps } from 'next/app';
 
 type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
