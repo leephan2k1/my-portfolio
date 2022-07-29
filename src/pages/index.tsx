@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import { useTheme } from 'next-themes';
 import Script from 'next/script';
 import DarkBanner from '~/components/partials/DarkBanner';
@@ -8,9 +9,16 @@ import ClientOnly from '~/components/shared/ClientOnly';
 import Container from '~/components/shared/Container';
 import Section from '~/components/shared/Section';
 import SmoothScroll from '~/components/shared/SmoothScroll';
+import { REVALIDATE_TIME } from '~/constant';
+import { connectToDatabase } from '~/utils/connectDb';
+import { ObjectId } from 'mongodb';
 
-const Home: NextPage = () => {
-    const { theme, setTheme } = useTheme();
+interface HomeProps {
+    desc: string;
+}
+
+const Home: NextPage<HomeProps> = ({ desc }) => {
+    const { theme } = useTheme();
 
     return (
         <>
@@ -31,13 +39,27 @@ const Home: NextPage = () => {
                         </Section>
 
                         <Section>
-                            <About />
+                            <About desc={desc} />
                         </Section>
                     </SmoothScroll>
                 </ClientOnly>
             </Container>
         </>
     );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+    const { db } = await connectToDatabase();
+    const objId = new ObjectId(process.env.DESC_MONGO_OBJECT_ID);
+
+    const data = await db.collection('description').findOne({ _id: objId });
+
+    const { _id, ...rest } = data;
+
+    return {
+        props: rest,
+        revalidate: REVALIDATE_TIME,
+    };
 };
 
 export default Home;
