@@ -9,11 +9,13 @@
     "dependencies": {
         "@heroicons/react": "^1.0.6",
         "framer-motion": "^6.5.1",
+        "lax.js": "^2.0.3",
         "modern-normalize": "^1.1.0",
         "next": "latest",
         "next-themes": "^0.2.0",
         "react": "18.1.0",
         "react-dom": "18.1.0",
+        "usehooks-ts": "^2.6.0",
         "vanta": "^0.5.22"
     },
     "devDependencies": {

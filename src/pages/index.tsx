@@ -3,9 +3,10 @@ import { useTheme } from 'next-themes';
 import Script from 'next/script';
 import DarkBanner from '~/components/partials/DarkBanner';
 import LightBanner from '~/components/partials/LightBanner';
+import About from '~/components/shared/About';
+import ClientOnly from '~/components/shared/ClientOnly';
 import Container from '~/components/shared/Container';
 import Section from '~/components/shared/Section';
-import ClientOnly from '~/components/shared/ClientOnly';
 import SmoothScroll from '~/components/shared/SmoothScroll';
 
 const Home: NextPage = () => {
@@ -29,7 +30,9 @@ const Home: NextPage = () => {
                             )}
                         </Section>
 
-                        <LightBanner />
+                        <Section>
+                            <About />
+                        </Section>
                     </SmoothScroll>
                 </ClientOnly>
             </Container>

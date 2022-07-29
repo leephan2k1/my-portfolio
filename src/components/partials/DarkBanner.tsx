@@ -29,9 +29,9 @@ function Banner() {
 
     return (
         <>
-            <div className="relative w-full h-screen" ref={bannerRef}>
+            <div className="relative w-full min-h-screen" ref={bannerRef}>
                 <div className="relative-center absolute-center overflow-hidden top-[38%] w-72 h-72 rounded-full z-10">
-                    <h1 className="font-bold font-primary text-6xl hover:gradient-text transition-all duration-200 select-none">
+                    <h1 className="font-bold font-primary text-6xl hover:scale-[110%] transition-all duration-200 select-none">
                         Triết Lý
                     </h1>
                 </div>

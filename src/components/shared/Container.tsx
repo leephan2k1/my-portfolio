@@ -6,7 +6,7 @@ interface ContainerProps {
 
 export default function Container({ children }: ContainerProps) {
     return (
-        <div className="flex min-h-screen flex-col mx-auto overflow-x-hidden dark:bg-[#000000]">
+        <div className="flex min-h-screen flex-col mx-auto overflow-x-hidden dark:bg-[#000000] font-primary">
             {children}
         </div>
     );
