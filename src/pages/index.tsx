@@ -28,8 +28,8 @@ const Home: NextPage<HomeProps> = ({ desc }) => {
             />
 
             <Container>
-                <ClientOnly>
-                    <SmoothScroll>
+                <SmoothScroll>
+                    <ClientOnly>
                         <Section>
                             {theme === 'light' ? (
                                 <LightBanner />
@@ -37,12 +37,11 @@ const Home: NextPage<HomeProps> = ({ desc }) => {
                                 <DarkBanner />
                             )}
                         </Section>
-
-                        <Section>
-                            <About desc={desc} />
-                        </Section>
-                    </SmoothScroll>
-                </ClientOnly>
+                    </ClientOnly>
+                    <Section>
+                        <About desc={desc} />
+                    </Section>
+                </SmoothScroll>
             </Container>
         </>
     );
