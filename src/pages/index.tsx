@@ -1,17 +1,19 @@
 import type { NextPage } from 'next';
+import { ObjectId } from 'mongodb';
 import { GetStaticProps } from 'next';
 import { useTheme } from 'next-themes';
 import Script from 'next/script';
+import { useRef } from 'react';
 import DarkBanner from '~/components/partials/DarkBanner';
 import LightBanner from '~/components/partials/LightBanner';
 import About from '~/components/shared/About';
 import ClientOnly from '~/components/shared/ClientOnly';
 import Container from '~/components/shared/Container';
 import Section from '~/components/shared/Section';
+import Skills from '~/components/shared/Skills';
 import SmoothScroll from '~/components/shared/SmoothScroll';
 import { REVALIDATE_TIME } from '~/constant';
 import { connectToDatabase } from '~/utils/connectDb';
-import { ObjectId } from 'mongodb';
 
 interface HomeProps {
     desc: string;
@@ -40,6 +42,10 @@ const Home: NextPage<HomeProps> = ({ desc }) => {
                     </ClientOnly>
                     <Section>
                         <About desc={desc} />
+                    </Section>
+
+                    <Section>
+                        <Skills />
                     </Section>
                 </SmoothScroll>
             </Container>
