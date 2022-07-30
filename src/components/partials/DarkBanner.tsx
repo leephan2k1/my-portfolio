@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { memo, useEffect, useRef, useState } from 'react';
 //@ts-ignore
 import HALO from 'vanta/dist/vanta.halo.min';
+import Quote from '~/components/shared/Quote';
 
 function Banner() {
     const bannerRef = useRef(null);
@@ -31,7 +32,7 @@ function Banner() {
         <>
             <div className="relative w-full min-h-screen" ref={bannerRef}>
                 <div className="relative-center absolute-center overflow-hidden top-[38%] w-72 h-72 rounded-full z-10">
-                    <h1 className="font-bold font-primary text-6xl hover:scale-[110%] transition-all duration-200 select-none">
+                    <h1 className="font-bold text-6xl hover:scale-[110%] transition-all duration-200 select-none ">
                         Triết Lý
                     </h1>
                 </div>
@@ -50,6 +51,7 @@ function Banner() {
                     </span>
                     Developer.
                 </motion.h2>
+                <Quote styles="absolute left-1/2 -translate-x-1/2 top-[70%] w-full" />
             </div>
         </>
     );
