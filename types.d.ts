@@ -5,3 +5,9 @@ declare module 'framer-motion' {
         children?: React.ReactNode;
     }
 }
+
+export interface Skill {
+    skillCover: string;
+    skillRef: string;
+    skillTitle: string;
+}
