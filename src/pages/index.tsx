@@ -3,7 +3,6 @@ import { ObjectId } from 'mongodb';
 import { GetStaticProps } from 'next';
 import { useTheme } from 'next-themes';
 import Script from 'next/script';
-import { useRef } from 'react';
 import DarkBanner from '~/components/partials/DarkBanner';
 import LightBanner from '~/components/partials/LightBanner';
 import About from '~/components/shared/About';
@@ -14,12 +13,19 @@ import Skills from '~/components/shared/Skills';
 import SmoothScroll from '~/components/shared/SmoothScroll';
 import { REVALIDATE_TIME } from '~/constant';
 import { connectToDatabase } from '~/utils/connectDb';
+import { Skill } from 'types';
 
 interface HomeProps {
     desc: string;
+    primary_skills: Skill[];
+    secondary_skills: Skill[];
 }
 
-const Home: NextPage<HomeProps> = ({ desc }) => {
+const Home: NextPage<HomeProps> = ({
+    desc,
+    primary_skills,
+    secondary_skills,
+}) => {
     const { theme } = useTheme();
 
     return (
@@ -45,7 +51,10 @@ const Home: NextPage<HomeProps> = ({ desc }) => {
                     </Section>
 
                     <Section>
-                        <Skills />
+                        <Skills
+                            primary_skills={primary_skills}
+                            secondary_skills={secondary_skills}
+                        />
                     </Section>
                 </SmoothScroll>
             </Container>
