@@ -11,7 +11,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
             <header>
                 <Navbar />
             </header>
-            <main className="h-screen">{children}</main>
+            <main>{children}</main>
         </>
     );
 }

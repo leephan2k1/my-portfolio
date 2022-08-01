@@ -1,19 +1,20 @@
-import type { NextPage } from 'next';
 import { ObjectId } from 'mongodb';
+import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
 import { useTheme } from 'next-themes';
 import Script from 'next/script';
+import { ScrollerMotion } from 'scroller-motion';
+import { Skill } from 'types';
 import DarkBanner from '~/components/partials/DarkBanner';
 import LightBanner from '~/components/partials/LightBanner';
 import About from '~/components/shared/About';
 import ClientOnly from '~/components/shared/ClientOnly';
 import Container from '~/components/shared/Container';
+import Projects from '~/components/shared/Projects';
 import Section from '~/components/shared/Section';
 import Skills from '~/components/shared/Skills';
-import SmoothScroll from '~/components/shared/SmoothScroll';
 import { REVALIDATE_TIME } from '~/constant';
 import { connectToDatabase } from '~/utils/connectDb';
-import { Skill } from 'types';
 
 interface HomeProps {
     desc: string;
@@ -34,9 +35,8 @@ const Home: NextPage<HomeProps> = ({
                 src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
                 strategy="beforeInteractive"
             />
-
-            <Container>
-                <SmoothScroll>
+            <ScrollerMotion>
+                <Container>
                     <ClientOnly>
                         <Section>
                             {theme === 'light' ? (
@@ -46,6 +46,7 @@ const Home: NextPage<HomeProps> = ({
                             )}
                         </Section>
                     </ClientOnly>
+
                     <Section>
                         <About desc={desc} />
                     </Section>
@@ -56,8 +57,12 @@ const Home: NextPage<HomeProps> = ({
                             secondary_skills={secondary_skills}
                         />
                     </Section>
-                </SmoothScroll>
-            </Container>
+
+                    <Section>
+                        <Projects />
+                    </Section>
+                </Container>
+            </ScrollerMotion>
         </>
     );
 };

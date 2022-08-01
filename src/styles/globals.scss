@@ -37,6 +37,11 @@ body {
     overflow-x: hidden;
 }
 
+html,
+body {
+    overscroll-behavior: none;
+}
+
 *:focus {
     outline: none;
 }

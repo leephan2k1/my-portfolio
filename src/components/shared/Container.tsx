@@ -9,7 +9,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
         return (
             <div
                 ref={ref}
-                className="flex min-h-screen flex-col mx-auto overflow-x-hidden dark:bg-[#000000] font-primary"
+                className="relative flex flex-col mx-auto overflow-x-hidden dark:bg-[#000000] font-primary"
             >
                 {children}
             </div>
