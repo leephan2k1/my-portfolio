@@ -1,7 +1,6 @@
 export const REVALIDATE_TIME = 60 * 60 * 24; //1 day
 
 //ref configs: https://github.com/Stanko/react-plx#props
-
 export const skillDescPlx = [
     {
         start: 0,
@@ -15,3 +14,5 @@ export const skillDescPlx = [
         ],
     },
 ];
+
+export const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT as string;

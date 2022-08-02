@@ -2,18 +2,22 @@ import { ObjectId } from 'mongodb';
 import { GetStaticProps } from 'next';
 import { useTheme } from 'next-themes';
 import Script from 'next/script';
+import { useCallback, useEffect, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { ScrollerMotion } from 'scroller-motion';
 import { Project, Skill } from 'types';
 import DarkBanner from '~/components/partials/DarkBanner';
 import LightBanner from '~/components/partials/LightBanner';
 import About from '~/components/shared/About';
 import ClientOnly from '~/components/shared/ClientOnly';
+import Contact from '~/components/shared/Contact';
 import Container from '~/components/shared/Container';
 import Projects from '~/components/shared/Projects';
 import Section from '~/components/shared/Section';
 import Skills from '~/components/shared/Skills';
 import { REVALIDATE_TIME } from '~/constant';
 import { connectToDatabase } from '~/utils/connectDb';
+import useFormState from '~/context/FormContext';
 
 import type { NextPage } from 'next';
 interface HomeProps {
@@ -30,6 +34,26 @@ const Home: NextPage<HomeProps> = ({
     secondary_skills,
 }) => {
     const { theme } = useTheme();
+    const frmState = useFormState();
+
+    useEffect(() => {
+        if (frmState?.formState === 'succeeded') {
+            toast.success('Sent successfully', {
+                style: {
+                    zIndex: 999,
+                },
+            });
+        }
+
+        if (frmState?.formState === 'error') {
+            toast.error('Oops! Please try again in a few minutes', {
+                style: {
+                    zIndex: 999,
+                },
+                duration: 3000,
+            });
+        }
+    }, [frmState]);
 
     return (
         <>
@@ -63,8 +87,13 @@ const Home: NextPage<HomeProps> = ({
                     <Section sectionId="Projects">
                         <Projects projects={projects} />
                     </Section>
+
+                    <Section sectionId="Contact">
+                        <Contact />
+                    </Section>
                 </Container>
             </ScrollerMotion>
+            <Toaster position="top-center" />
         </>
     );
 };
