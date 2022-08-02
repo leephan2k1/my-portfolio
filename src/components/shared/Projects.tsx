@@ -1,12 +1,13 @@
 import { nanoid } from 'nanoid';
 import { Project } from 'types';
 import ProjectItem from './ProjectItem';
+import { memo } from 'react';
 
 interface ProjectsProps {
     projects: Project[];
 }
 
-export default function Projects({ projects }: ProjectsProps) {
+function Projects({ projects }: ProjectsProps) {
     return (
         <div className="w-full min-h-[500px] my-32">
             <h1 className="text-center text-6xl font-secondary">My Projects</h1>
@@ -26,3 +27,5 @@ export default function Projects({ projects }: ProjectsProps) {
         </div>
     );
 }
+
+export default memo(Projects);

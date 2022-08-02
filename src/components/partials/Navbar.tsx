@@ -2,6 +2,7 @@ import { useTheme } from 'next-themes';
 import { MouseEvent } from 'react';
 import ToggleTheme from '~/components/buttons/ToggleTheme';
 import TextLogo from '~/components/icons/TextLogo';
+import ClientOnly from '../shared/ClientOnly';
 
 export default function Navbar() {
     const { theme } = useTheme();
@@ -32,11 +33,13 @@ export default function Navbar() {
         >
             <div className="flex py-2 items-center h-full lg:w-1/2 md:w-3/4 w-full mx-auto ">
                 <button data-id="Logo-top" onClick={handleNavigateSection}>
-                    <TextLogo
-                        className={`${
-                            theme === 'dark' ? 'fill-white' : 'fill-black'
-                        } w-24 h-24 mx-4`}
-                    />
+                    <ClientOnly>
+                        <TextLogo
+                            className={`${
+                                theme === 'dark' ? 'fill-white' : 'fill-black'
+                            } w-24 h-24 mx-4`}
+                        />
+                    </ClientOnly>
                 </button>
 
                 <ul className="text-2xl pl-10 flex w-full h-full space-x-8">

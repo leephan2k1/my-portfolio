@@ -3,8 +3,9 @@ import { useEffectOnce } from 'usehooks-ts';
 import { renderCanvas } from '~/utils/renderCanvas';
 import { motion } from 'framer-motion';
 import Quote from '../shared/Quote';
+import { memo } from 'react';
 
-export default function LightBanner() {
+function LightBanner() {
     useEffectOnce(() => {
         renderCanvas();
     });
@@ -42,3 +43,5 @@ export default function LightBanner() {
         </>
     );
 }
+
+export default memo(LightBanner);

@@ -3,16 +3,14 @@ import Plx from 'react-plx';
 import { Skill } from 'types';
 import SkillItem from '~/components/shared/SkillItem';
 import { skillDescPlx } from '~/constant';
+import { memo } from 'react';
 
 interface SkillsProps {
     primary_skills: Skill[];
     secondary_skills: Skill[];
 }
 
-export default function Skills({
-    primary_skills,
-    secondary_skills,
-}: SkillsProps) {
+function Skills({ primary_skills, secondary_skills }: SkillsProps) {
     return (
         <div className="w-full min-h-[500px] pt-20 pb-32">
             <div className="flex flex-col py-2 px-6 items-center h-fit lg:w-[40%] md:w-3/4 mx-auto space-y-6">
@@ -59,3 +57,5 @@ export default function Skills({
         </div>
     );
 }
+
+export default memo(Skills);

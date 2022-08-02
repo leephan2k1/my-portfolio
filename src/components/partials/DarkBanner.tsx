@@ -4,7 +4,7 @@ import { memo, useEffect, useRef, useState } from 'react';
 import HALO from 'vanta/dist/vanta.halo.min';
 import Quote from '~/components/shared/Quote';
 
-function Banner() {
+function DarkBanner() {
     const bannerRef = useRef(null);
     const [vantaEffect, setVantaEffect] = useState(0);
 
@@ -57,4 +57,4 @@ function Banner() {
     );
 }
 
-export default memo(Banner);
+export default memo(DarkBanner);
