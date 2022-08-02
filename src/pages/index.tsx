@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next';
 import { useTheme } from 'next-themes';
 import Script from 'next/script';
 import { ScrollerMotion } from 'scroller-motion';
-import { Skill } from 'types';
+import { Skill, Project } from 'types';
 import DarkBanner from '~/components/partials/DarkBanner';
 import LightBanner from '~/components/partials/LightBanner';
 import About from '~/components/shared/About';
@@ -20,10 +20,12 @@ interface HomeProps {
     desc: string;
     primary_skills: Skill[];
     secondary_skills: Skill[];
+    projects: Project[];
 }
 
 const Home: NextPage<HomeProps> = ({
     desc,
+    projects,
     primary_skills,
     secondary_skills,
 }) => {
@@ -59,7 +61,7 @@ const Home: NextPage<HomeProps> = ({
                     </Section>
 
                     <Section>
-                        <Projects />
+                        <Projects projects={projects} />
                     </Section>
                 </Container>
             </ScrollerMotion>
