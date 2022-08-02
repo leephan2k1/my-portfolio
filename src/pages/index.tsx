@@ -1,10 +1,9 @@
 import { ObjectId } from 'mongodb';
-import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
 import { useTheme } from 'next-themes';
 import Script from 'next/script';
 import { ScrollerMotion } from 'scroller-motion';
-import { Skill, Project } from 'types';
+import { Project, Skill } from 'types';
 import DarkBanner from '~/components/partials/DarkBanner';
 import LightBanner from '~/components/partials/LightBanner';
 import About from '~/components/shared/About';
@@ -16,6 +15,7 @@ import Skills from '~/components/shared/Skills';
 import { REVALIDATE_TIME } from '~/constant';
 import { connectToDatabase } from '~/utils/connectDb';
 
+import type { NextPage } from 'next';
 interface HomeProps {
     desc: string;
     primary_skills: Skill[];
@@ -40,7 +40,7 @@ const Home: NextPage<HomeProps> = ({
             <ScrollerMotion>
                 <Container>
                     <ClientOnly>
-                        <Section>
+                        <Section sectionId="Banner">
                             {theme === 'light' ? (
                                 <LightBanner />
                             ) : (
@@ -49,18 +49,18 @@ const Home: NextPage<HomeProps> = ({
                         </Section>
                     </ClientOnly>
 
-                    <Section>
+                    <Section sectionId="About">
                         <About desc={desc} />
                     </Section>
 
-                    <Section>
+                    <Section sectionId="Skills">
                         <Skills
                             primary_skills={primary_skills}
                             secondary_skills={secondary_skills}
                         />
                     </Section>
 
-                    <Section>
+                    <Section sectionId="Projects">
                         <Projects projects={projects} />
                     </Section>
                 </Container>

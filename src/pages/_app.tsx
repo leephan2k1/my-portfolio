@@ -1,5 +1,5 @@
-import '~/styles/globals.scss';
 import 'atropos/css';
+import '~/styles/globals.scss';
 
 import { ThemeProvider } from 'next-themes';
 import { ReactElement, ReactNode } from 'react';
