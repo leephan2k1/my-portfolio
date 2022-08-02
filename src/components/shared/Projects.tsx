@@ -1,5 +1,5 @@
+import { nanoid } from 'nanoid';
 import { Project } from 'types';
-
 import ProjectItem from './ProjectItem';
 
 interface ProjectsProps {
@@ -18,7 +18,7 @@ export default function Projects({ projects }: ProjectsProps) {
                             <ProjectItem
                                 reverse={index % 2 !== 0}
                                 project={project}
-                                key={project.pjTitle}
+                                key={nanoid(5)}
                             />
                         );
                     })}

@@ -1,7 +1,8 @@
+import { nanoid } from 'nanoid';
 import Plx from 'react-plx';
+import { Skill } from 'types';
 import SkillItem from '~/components/shared/SkillItem';
 import { skillDescPlx } from '~/constant';
-import { Skill } from 'types';
 
 interface SkillsProps {
     primary_skills: Skill[];
@@ -27,7 +28,7 @@ export default function Skills({
                     {primary_skills.map((skill) => {
                         return (
                             <SkillItem
-                                key={skill.skillTitle}
+                                key={nanoid(5)}
                                 src={skill.skillCover}
                                 title={skill.skillTitle}
                                 link={skill.skillRef}
@@ -45,7 +46,7 @@ export default function Skills({
                     {secondary_skills.map((skill) => {
                         return (
                             <SkillItem
-                                key={skill.skillTitle}
+                                key={nanoid(5)}
                                 src={skill.skillCover}
                                 title={skill.skillTitle}
                                 link={skill.skillRef}

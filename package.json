@@ -12,6 +12,7 @@
         "framer-motion": "^6.5.1",
         "modern-normalize": "^1.1.0",
         "mongodb": "^4.8.1",
+        "nanoid": "^4.0.0",
         "next": "latest",
         "next-themes": "^0.2.0",
         "react": "18.1.0",

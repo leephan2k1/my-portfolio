@@ -2,13 +2,18 @@ import { forwardRef, ReactNode } from 'react';
 
 interface SectionProps {
     style?: string;
+    sectionId?: string;
     children?: ReactNode;
 }
 
 const Section = forwardRef<HTMLDivElement, SectionProps>(
-    ({ children, style }, ref) => {
+    ({ children, style, sectionId }, ref) => {
         return (
-            <section ref={ref} className={style}>
+            <section
+                id={sectionId ? sectionId : ''}
+                ref={ref}
+                className={style}
+            >
                 {children}
             </section>
         );

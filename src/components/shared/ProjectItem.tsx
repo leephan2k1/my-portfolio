@@ -1,7 +1,7 @@
 import Atropos from 'atropos/react';
 import { FaGithub } from 'react-icons/fa';
 import { Project } from 'types';
-
+import { nanoid } from 'nanoid';
 import { ExternalLinkIcon } from '@heroicons/react/outline';
 
 import SkillItem from './SkillItem';
@@ -31,6 +31,7 @@ export default function ProjectItem({ reverse, project }: ProjectItemProps) {
                         project?.pjStacks.map((tech) => {
                             return (
                                 <SkillItem
+                                    key={nanoid(5)}
                                     src={tech.techCover}
                                     title={tech.techTitle}
                                     link={tech.techRef}
