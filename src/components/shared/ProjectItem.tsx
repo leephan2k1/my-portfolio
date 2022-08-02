@@ -1,6 +1,9 @@
-import { ExternalLinkIcon } from '@heroicons/react/outline';
+import Atropos from 'atropos/react';
 import { FaGithub } from 'react-icons/fa';
 import { Project } from 'types';
+
+import { ExternalLinkIcon } from '@heroicons/react/outline';
+
 import SkillItem from './SkillItem';
 
 interface ProjectItemProps {
@@ -54,14 +57,16 @@ export default function ProjectItem({ reverse, project }: ProjectItemProps) {
             </div>
 
             <div className="relative min-w-[70%]">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl blur-lg"></div>
-                <figure className="relative flex items-center aspect-video p-1">
-                    <img
-                        className="rounded-2xl w-full h-full"
-                        src={project.pjCover}
-                        alt={project.pjTitle}
-                    />
-                </figure>
+                <Atropos shadow={false}>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl blur-lg"></div>
+                    <figure className="relative flex items-center aspect-video p-1">
+                        <img
+                            className="rounded-2xl w-full h-full"
+                            src={project.pjCover}
+                            alt={project.pjTitle}
+                        />
+                    </figure>
+                </Atropos>
             </div>
         </div>
     );

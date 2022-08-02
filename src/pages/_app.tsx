@@ -1,11 +1,12 @@
 import '~/styles/globals.scss';
+import 'atropos/css';
 
-import type { NextPage } from 'next';
 import { ThemeProvider } from 'next-themes';
-import type { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
 import MainLayout from '~/components/layouts/MainLayout';
 
+import type { NextPage } from 'next';
+import type { AppProps } from 'next/app';
 type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
 };
