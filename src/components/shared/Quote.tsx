@@ -16,7 +16,7 @@ export default function Quote({ styles }: QuoteProps) {
             <small className="w-full absolute-center">
                 <QuoteIcon styles="dark:fill-white" />
             </small>
-            <p className="w-full text-center text-gray-300 px-4">
+            <p className="w-full text-center dark:text-gray-300 px-4">
                 I will enjoy life as an{' '}
                 <a
                     className="text-yellow-400"

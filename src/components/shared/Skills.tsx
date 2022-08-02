@@ -1,6 +1,6 @@
 import Plx from 'react-plx';
 import SkillItem from '~/components/shared/SkillItem';
-import { skillsTitlePlx, skillDescPlx } from '~/constant';
+import { skillDescPlx } from '~/constant';
 import { Skill } from 'types';
 
 interface SkillsProps {
@@ -13,9 +13,9 @@ export default function Skills({
     secondary_skills,
 }: SkillsProps) {
     return (
-        <div className="w-full min-h-[500px] h-[500px]  ">
+        <div className="w-full min-h-[500px] pt-20 pb-32">
             <div className="flex flex-col py-2 px-6 items-center h-fit lg:w-[40%] md:w-3/4 mx-auto space-y-6">
-                <Plx parallaxData={skillsTitlePlx}>
+                <Plx parallaxData={skillDescPlx}>
                     <h1 className="font-secondary font-semibold text-4xl">
                         My Skills
                     </h1>
@@ -31,6 +31,7 @@ export default function Skills({
                                 src={skill.skillCover}
                                 title={skill.skillTitle}
                                 link={skill.skillRef}
+                                styleImg="w-32 h-32"
                             />
                         );
                     })}
@@ -48,6 +49,7 @@ export default function Skills({
                                 src={skill.skillCover}
                                 title={skill.skillTitle}
                                 link={skill.skillRef}
+                                styleImg="w-32 h-32"
                             />
                         );
                     })}
