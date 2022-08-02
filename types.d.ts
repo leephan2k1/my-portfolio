@@ -6,6 +6,8 @@ declare module 'framer-motion' {
     }
 }
 
+export type FormState = 'error' | 'succeeded' | 'default';
+
 export interface Skill {
     skillCover: string;
     skillRef: string;
