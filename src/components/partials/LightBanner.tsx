@@ -11,7 +11,7 @@ export default function LightBanner() {
 
     return (
         <>
-            <div className="relative flex flex-col w-full h-screen flex items-center justify-center">
+            <div className="relative flex flex-col w-full h-screen items-center justify-center">
                 <h1 className="font-bold text-6xl md:text-8xl hover:scale-[110%] transition-all duration-200 select-none font-secondary fancy-fade-in">
                     Triết Lý
                 </h1>
