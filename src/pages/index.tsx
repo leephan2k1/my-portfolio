@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { GetStaticProps } from 'next';
 import { useTheme } from 'next-themes';
 import Script from 'next/script';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { ScrollerMotion } from 'scroller-motion';
 import { Project, Skill } from 'types';
@@ -16,8 +16,8 @@ import Projects from '~/components/shared/Projects';
 import Section from '~/components/shared/Section';
 import Skills from '~/components/shared/Skills';
 import { REVALIDATE_TIME } from '~/constant';
-import { connectToDatabase } from '~/utils/connectDb';
 import useFormState from '~/context/FormContext';
+import { connectToDatabase } from '~/utils/connectDb';
 
 import type { NextPage } from 'next';
 interface HomeProps {
@@ -61,38 +61,34 @@ const Home: NextPage<HomeProps> = ({
                 src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
                 strategy="beforeInteractive"
             />
-            <ScrollerMotion>
-                <Container>
-                    <ClientOnly>
-                        <Section sectionId="Banner">
-                            {theme === 'light' ? (
-                                <LightBanner />
-                            ) : (
-                                <DarkBanner />
-                            )}
-                        </Section>
-                    </ClientOnly>
-
-                    <Section sectionId="About">
-                        <About desc={desc} />
+            {/* <ScrollerMotion> */}
+            <Container>
+                <ClientOnly>
+                    <Section sectionId="Banner">
+                        {theme === 'light' ? <LightBanner /> : <DarkBanner />}
                     </Section>
+                </ClientOnly>
 
-                    <Section sectionId="Skills">
-                        <Skills
-                            primary_skills={primary_skills}
-                            secondary_skills={secondary_skills}
-                        />
-                    </Section>
+                <Section sectionId="About">
+                    <About desc={desc} />
+                </Section>
 
-                    <Section sectionId="Projects">
-                        <Projects projects={projects} />
-                    </Section>
+                <Section sectionId="Skills">
+                    <Skills
+                        primary_skills={primary_skills}
+                        secondary_skills={secondary_skills}
+                    />
+                </Section>
 
-                    <Section sectionId="Contact">
-                        <Contact />
-                    </Section>
-                </Container>
-            </ScrollerMotion>
+                <Section sectionId="Projects">
+                    <Projects projects={projects} />
+                </Section>
+
+                <Section sectionId="Contact">
+                    <Contact />
+                </Section>
+            </Container>
+            {/* </ScrollerMotion> */}
             <Toaster position="top-center" />
         </>
     );
