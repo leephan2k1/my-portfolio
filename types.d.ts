@@ -11,3 +11,27 @@ export interface Skill {
     skillRef: string;
     skillTitle: string;
 }
+
+export interface PlxConfig {
+    start: number | string;
+    duration?: string | number;
+    end: number | string;
+    properties: {
+        startValue: number | string;
+        endValue: number | string;
+        property: string;
+    }[];
+}
+
+export interface Project {
+    pjCover: string;
+    pjTitle: string;
+    pjDemo: string;
+    pjGithub: string;
+    pjDesc: string;
+    pjStacks: {
+        techCover: string;
+        techTitle: string;
+        techRef: string;
+    }[];
+}
