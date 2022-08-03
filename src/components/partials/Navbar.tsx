@@ -98,7 +98,13 @@ function Navbar() {
                         </button>
                     </li>
                     <li className="transition-all duration-200 hover:gradient-text hover:scale-[110%]">
-                        <button onClick={handleNavigateSection}>Resume</button>
+                        <a
+                            href="/files/Triet-Ly-CV.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Resume
+                        </a>
                     </li>
                     <li className="transition-all duration-200 hover:gradient-text hover:scale-[110%]">
                         <button
@@ -177,9 +183,13 @@ function Navbar() {
                                         </button>
                                     </li>
                                     <li>
-                                        <button onClick={handleNavigateSection}>
+                                        <a
+                                            href="/files/Triet-Ly-CV.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
                                             Resume
-                                        </button>
+                                        </a>
                                     </li>
                                     <li>
                                         <button
