@@ -20,7 +20,7 @@ function Skills({ primary_skills, secondary_skills }: SkillsProps) {
                     </h1>
                 </Plx>
                 <Plx parallaxData={skillDescPlx}>
-                    <h2 className="font-extralight text-xl my-4">Focus on</h2>
+                    <h2 className="font-extralight text-2xl my-4">Focus on</h2>
                 </Plx>
                 <div className="grid md:grid-cols-5 grid-cols-3 items-center justify-center w-full h-fit gap-6 md:gap-4">
                     {primary_skills.map((skill) => {
@@ -36,11 +36,11 @@ function Skills({ primary_skills, secondary_skills }: SkillsProps) {
                     })}
                 </div>
                 <Plx parallaxData={skillDescPlx}>
-                    <h2 className="font-extralight text-xl my-4">
+                    <h2 className="font-extralight text-2xl my-4">
                         Able to adapt
                     </h2>
                 </Plx>
-                <div className="flex justify-center w-full h-fit space-x-4 md:space-x-8">
+                <div className="flex flex-wrap justify-center w-full h-fit space-x-4 md:space-x-8">
                     {secondary_skills.map((skill) => {
                         return (
                             <SkillItem
