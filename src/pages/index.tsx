@@ -9,6 +9,7 @@ import About from '~/components/shared/About';
 import ClientOnly from '~/components/shared/ClientOnly';
 import Contact from '~/components/shared/Contact';
 import Container from '~/components/shared/Container';
+import Head from '~/components/shared/Head';
 import Projects from '~/components/shared/Projects';
 import Section from '~/components/shared/Section';
 import Skills from '~/components/shared/Skills';
@@ -38,6 +39,8 @@ const Home: NextPage<HomeProps> = ({
                 src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
                 strategy="beforeInteractive"
             />
+
+            <Head />
 
             <Container>
                 <ClientOnly>
