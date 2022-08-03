@@ -2,9 +2,6 @@ import { ObjectId } from 'mongodb';
 import { GetStaticProps } from 'next';
 import { useTheme } from 'next-themes';
 import Script from 'next/script';
-import { useEffect } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
-import { ScrollerMotion } from 'scroller-motion';
 import { Project, Skill } from 'types';
 import DarkBanner from '~/components/partials/DarkBanner';
 import LightBanner from '~/components/partials/LightBanner';
@@ -16,10 +13,10 @@ import Projects from '~/components/shared/Projects';
 import Section from '~/components/shared/Section';
 import Skills from '~/components/shared/Skills';
 import { REVALIDATE_TIME } from '~/constant';
-import useFormState from '~/context/FormContext';
 import { connectToDatabase } from '~/utils/connectDb';
 
 import type { NextPage } from 'next';
+
 interface HomeProps {
     desc: string;
     primary_skills: Skill[];
@@ -34,26 +31,6 @@ const Home: NextPage<HomeProps> = ({
     secondary_skills,
 }) => {
     const { theme } = useTheme();
-    const frmState = useFormState();
-
-    useEffect(() => {
-        if (frmState?.formState === 'succeeded') {
-            toast.success('Sent successfully', {
-                style: {
-                    zIndex: 999,
-                },
-            });
-        }
-
-        if (frmState?.formState === 'error') {
-            toast.error('Oops! Please try again in a few minutes', {
-                style: {
-                    zIndex: 999,
-                },
-                duration: 3000,
-            });
-        }
-    }, [frmState]);
 
     return (
         <>
@@ -61,7 +38,7 @@ const Home: NextPage<HomeProps> = ({
                 src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
                 strategy="beforeInteractive"
             />
-            {/* <ScrollerMotion> */}
+
             <Container>
                 <ClientOnly>
                     <Section sectionId="Banner">
@@ -88,8 +65,6 @@ const Home: NextPage<HomeProps> = ({
                     <Contact />
                 </Section>
             </Container>
-            {/* </ScrollerMotion> */}
-            <Toaster position="top-center" />
         </>
     );
 };

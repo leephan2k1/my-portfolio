@@ -1,8 +1,9 @@
 import { useTheme } from 'next-themes';
-import { MouseEvent, useState, useRef } from 'react';
+import { MouseEvent, useState, useRef, memo } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 import ToggleTheme from '~/components/buttons/ToggleTheme';
 import TextLogo from '~/components/icons/TextLogo';
+import { Toaster } from 'node_modules/react-hot-toast/dist';
 
 import {
     AnimatePresence,
@@ -30,7 +31,7 @@ const buttonAnimate = {
     },
 };
 
-export default function Navbar() {
+function Navbar() {
     const { theme } = useTheme();
 
     const [menuState, setMenuState] = useState(false);
@@ -67,8 +68,10 @@ export default function Navbar() {
     return (
         <nav
             id="Nav"
-            className="fixed z-[100] top-0 left-0 w-full backdrop-blur-lg  bg-opacity-40"
+            className="fixed z-[50] top-0 left-0 w-full backdrop-blur-lg  bg-opacity-40"
         >
+            <Toaster position="top-center" />
+
             <div className="flex justify-between md:p-2 p-4 items-center h-full lg:w-1/2 md:w-3/4 w-full mx-auto ">
                 <button data-id="Logo-top" onClick={handleNavigateSection}>
                     <ClientOnly>
@@ -195,3 +198,5 @@ export default function Navbar() {
         </nav>
     );
 }
+
+export default memo(Navbar);

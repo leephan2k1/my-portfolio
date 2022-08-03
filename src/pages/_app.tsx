@@ -4,7 +4,6 @@ import '~/styles/globals.scss';
 import { ThemeProvider } from 'next-themes';
 import { ReactElement, ReactNode } from 'react';
 import MainLayout from '~/components/layouts/MainLayout';
-import { FormContextProvider } from '~/context/FormContext';
 
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
@@ -21,9 +20,7 @@ function MyApp({ Component, pageProps: { ...pageProps } }: AppPropsWithLayout) {
 
     return (
         <ThemeProvider attribute="class">
-            <FormContextProvider>
-                {getLayout(<Component {...pageProps} />)}
-            </FormContextProvider>
+            {getLayout(<Component {...pageProps} />)}
         </ThemeProvider>
     );
 }
