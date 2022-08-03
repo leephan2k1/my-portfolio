@@ -6,7 +6,7 @@ interface AboutProps {
 
 export default function About({ desc }: AboutProps) {
     return (
-        <article className="w-full min-h-[400px] h-[400px] h-fit">
+        <article className="w-full min-h-[400px]  h-fit">
             <div className="flex flex-col justify-center md:justify-start py-2 px-6 items-center h-full lg:w-1/2 md:w-3/4 w-full mx-auto ">
                 <div className="absolute-center">
                     <figure className="h-full min-w-fit absolute-center">
