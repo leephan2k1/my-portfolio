@@ -9,17 +9,23 @@ function DarkBanner() {
     const [vantaEffect, setVantaEffect] = useState(0);
 
     useEffect(() => {
-        if (!vantaEffect && typeof window !== undefined) {
-            setVantaEffect(
-                HALO({
-                    el: bannerRef.current,
-                    backgroundColor: 0x0,
-                    size: 0.8,
-                    amplitudeFactor: 2.0,
-                    mouseControls: false,
-                    touchControls: false,
-                    yOffset: 0.12,
-                }),
+        try {
+            if (!vantaEffect && typeof window !== undefined) {
+                setVantaEffect(
+                    HALO({
+                        el: bannerRef.current,
+                        backgroundColor: 0x0,
+                        size: 0.8,
+                        amplitudeFactor: 2.0,
+                        mouseControls: false,
+                        touchControls: false,
+                        yOffset: 0.12,
+                    }),
+                );
+            }
+        } catch (error) {
+            alert(
+                'Your browser does not support WebGL. Please try to switch to another browser!. (Trình duyệt của bạn đã cũ hoặc không hỗ trợ, Vui lòng nâng cấp hoặc thử trình duyệt khác!)',
             );
         }
         return () => {
