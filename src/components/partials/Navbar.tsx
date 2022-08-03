@@ -1,14 +1,48 @@
 import { useTheme } from 'next-themes';
-import { MouseEvent } from 'react';
+import { MouseEvent, useState, useRef } from 'react';
+import { useOnClickOutside } from 'usehooks-ts';
 import ToggleTheme from '~/components/buttons/ToggleTheme';
 import TextLogo from '~/components/icons/TextLogo';
+
+import {
+    AnimatePresence,
+    motion,
+    //@ts-ignore
+} from 'node_modules/framer-motion/dist/framer-motion';
+
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
+
 import ClientOnly from '../shared/ClientOnly';
+
+const buttonAnimate = {
+    initial: {
+        opacity: 0,
+        scale: 0.8,
+    },
+    animate: {
+        opacity: 1,
+        scale: 1,
+    },
+    transition: {
+        type: 'spring',
+        stiffness: 50,
+        duration: 0.5,
+    },
+};
 
 export default function Navbar() {
     const { theme } = useTheme();
 
+    const [menuState, setMenuState] = useState(false);
+    const refMenu = useRef<HTMLDivElement | null>(null);
+
+    useOnClickOutside(refMenu, () => {
+        setMenuState(false);
+    });
+
     const handleNavigateSection = (e: MouseEvent<HTMLButtonElement>) => {
         const content = e.currentTarget.dataset.id;
+        setMenuState(false);
 
         switch (content) {
             case 'About':
@@ -26,12 +60,16 @@ export default function Navbar() {
         }
     };
 
+    const handleToggleMenu = () => {
+        setMenuState((prevState) => !prevState);
+    };
+
     return (
         <nav
             id="Nav"
             className="fixed z-[100] top-0 left-0 w-full backdrop-blur-lg  bg-opacity-40"
         >
-            <div className="flex py-2 items-center h-full lg:w-1/2 md:w-3/4 w-full mx-auto ">
+            <div className="flex justify-between md:p-2 p-4 items-center h-full lg:w-1/2 md:w-3/4 w-full mx-auto ">
                 <button data-id="Logo-top" onClick={handleNavigateSection}>
                     <ClientOnly>
                         <TextLogo
@@ -42,7 +80,7 @@ export default function Navbar() {
                     </ClientOnly>
                 </button>
 
-                <ul className="text-2xl pl-10 flex w-full h-full space-x-8">
+                <ul className="text-2xl pl-10 hidden md:flex w-full h-full space-x-8">
                     <li className="transition-all duration-200 hover:gradient-text hover:scale-[110%]">
                         <button data-id="About" onClick={handleNavigateSection}>
                             About
@@ -69,8 +107,89 @@ export default function Navbar() {
                     </li>
                 </ul>
 
-                <div className="px-4">
+                <div className="px-4 flex space-x-8 relative">
                     <ToggleTheme />
+
+                    <ClientOnly>
+                        <button onClick={handleToggleMenu}>
+                            {menuState ? (
+                                <AnimatePresence>
+                                    <motion.div
+                                        key={menuState}
+                                        {...buttonAnimate}
+                                    >
+                                        <XIcon className="w-10 h-10 md:hidden" />
+                                    </motion.div>
+                                </AnimatePresence>
+                            ) : (
+                                <AnimatePresence>
+                                    <motion.div
+                                        key={menuState}
+                                        {...buttonAnimate}
+                                    >
+                                        <MenuIcon className="w-10 h-10 md:hidden" />
+                                    </motion.div>
+                                </AnimatePresence>
+                            )}
+                        </button>
+                    </ClientOnly>
+
+                    <AnimatePresence>
+                        {menuState && (
+                            <motion.div
+                                initial={{
+                                    opacity: 0,
+                                    scale: 0.5,
+                                }}
+                                exit={{
+                                    opacity: 0,
+                                    scale: 0.2,
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    scale: 1,
+                                }}
+                                transition={{
+                                    duration: 0.2,
+                                    ease: 'easeOut',
+                                }}
+                                ref={refMenu}
+                                className={`absolute top-14 -left-[45px] md:hidden`}
+                            >
+                                <ul className="flex flex-col items-center px-10 py-8 dark:bg-gray-800 bg-gray-200 space-y-14 rounded-xl shadow-lg tex-2xl">
+                                    <li>
+                                        <button
+                                            data-id="About"
+                                            onClick={handleNavigateSection}
+                                        >
+                                            About
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            data-id="Projects"
+                                            onClick={handleNavigateSection}
+                                        >
+                                            Projects
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button onClick={handleNavigateSection}>
+                                            Resume
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            data-id="Contact"
+                                            onClick={handleNavigateSection}
+                                        >
+                                            Contact
+                                        </button>
+                                    </li>
+                                </ul>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
             </div>
         </nav>
