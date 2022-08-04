@@ -1,23 +1,55 @@
-# Next.js + Tailwind CSS Example
+# TrietLy's Portfolio
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+### My personal portfolio
 
-## Deploy your own
+### The official website is [trietlydev.com](https://trietlydev.com/)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Tech stack
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+-   NextJS
+-   ReactJS
+-   TailwindCSS
+-   MongoDB
 
-## How to use
+## Project setup
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+.env.local:
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
 ```
+# See: https://formspree.io
+NEXT_PUBLIC_FORM_ENDPOINT=<your-formspree-endpoint>
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+# Mongodb: (See: https://www.mongodb.com/atlas/database)
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster....
+MONGODB_DB=your-db-name
+
+# create a "description" collection in your mongodb database
+# create a document following the Schema:
+# {
+  desc: string,
+  primary_skills: {
+    skillCover: string,
+    skillTitle: string,
+    skillRef: string
+  }[],
+  secondary_skills: {
+    skillCover: string,
+    skillTitle: string,
+    skillRef: string
+  }[],
+  projects: {
+    pjCover: string,
+    pjTitle: string,
+    pjDesc: string,
+    pjDemo: string,
+    pjGithub: string,
+    pjStack: {
+      techCover: string,
+      techTitle: string,
+      techRef: string
+    }[]
+  }[]
+}
+DESC_MONGO_OBJECT_ID=<your-document-id>
+
+```
