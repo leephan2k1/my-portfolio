@@ -57,7 +57,7 @@ export default function ProjectItem({ reverse, project }: ProjectItemProps) {
                 </div>
             </div>
 
-            <div className="relative min-w-[70%] hover:scale-[90%] transition-all duration-300">
+            <div className="relative min-w-[70%] hover:scale-[90%] transition-all duration-300 px-6 md:px-0">
                 <Atropos shadow={false}>
                     <div className="absolute -inset-0 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl"></div>
                     <figure className="relative flex items-center aspect-video p-1">

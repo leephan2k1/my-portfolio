@@ -37,7 +37,9 @@ function Navbar() {
     const refBtn = useRef<HTMLButtonElement | null>(null);
 
     useOnClickOutside(refBtn, () => {
-        setMenuState(false);
+        setTimeout(() => {
+            setMenuState(false);
+        }, 0);
     });
 
     const handleNavigateSection = (e: MouseEvent<HTMLButtonElement>) => {
