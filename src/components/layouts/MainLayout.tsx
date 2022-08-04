@@ -16,12 +16,21 @@ export default function MainLayout({ children }: MainLayoutProps) {
             <header>
                 <Navbar />
             </header>
-            <ScrollerMotion disabled={matchesMobile}>
-                <main>{children}</main>
-                <footer>
-                    <Footer />
-                </footer>
-            </ScrollerMotion>
+            {matchesMobile ? (
+                <>
+                    <main>{children}</main>
+                    <footer>
+                        <Footer />
+                    </footer>
+                </>
+            ) : (
+                <ScrollerMotion>
+                    <main>{children}</main>
+                    <footer>
+                        <Footer />
+                    </footer>
+                </ScrollerMotion>
+            )}
         </>
     );
 }
