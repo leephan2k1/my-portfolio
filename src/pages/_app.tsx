@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps: { ...pageProps } }: AppPropsWithLayout) {
         Component.getLayout ?? ((page) => <MainLayout>{page}</MainLayout>);
 
     return (
-        <ThemeProvider attribute="class">
+        <ThemeProvider enableSystem={false} attribute="class">
             {getLayout(<Component {...pageProps} />)}
         </ThemeProvider>
     );
