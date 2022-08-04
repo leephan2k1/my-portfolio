@@ -15,6 +15,6 @@ export const skillDescPlx = [
     },
 ];
 
-export const WEBSITE_URL = 'https://trietly.com';
+export const WEBSITE_URL = 'https://trietlydev.com';
 
 export const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT as string;
