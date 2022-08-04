@@ -19,6 +19,11 @@ export default function Head({
         <NextHead>
             <title>{title}</title>
             <link rel="manifest" href="/manifest.json" />
+            <link
+                rel="icon"
+                sizes="192x192"
+                href="images/icons/android/android-launchericon-192-192.png"
+            ></link>
 
             <meta name="title" content={title} />
             <meta name="description" content={description} />
