@@ -1,19 +1,19 @@
 import { useTheme } from 'next-themes';
-import { MouseEvent, useState, useRef, memo } from 'react';
-import { useOnClickOutside } from 'usehooks-ts';
-import ToggleTheme from '~/components/buttons/ToggleTheme';
-import TextLogo from '~/components/icons/TextLogo';
-import { Toaster } from 'node_modules/react-hot-toast/dist';
-
 import {
     AnimatePresence,
     motion,
     //@ts-ignore
 } from 'node_modules/framer-motion/dist/framer-motion';
+import { Toaster } from 'node_modules/react-hot-toast/dist';
+import { memo, MouseEvent, useRef, useState } from 'react';
+import { useOnClickOutside } from 'usehooks-ts';
+import ToggleTheme from '~/components/buttons/ToggleTheme';
+import TextLogo from '~/components/icons/TextLogo';
 
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
 import ClientOnly from '../shared/ClientOnly';
+import Teleport from '../shared/Teleport';
 
 const buttonAnimate = {
     initial: {
@@ -72,6 +72,12 @@ function Navbar() {
         >
             <Toaster position="top-center" />
 
+            {menuState && (
+                <Teleport>
+                    <div className="h-screen w-screen fixed top-0 left-0 z-40"></div>
+                </Teleport>
+            )}
+
             <div className="flex justify-between md:p-2 p-4 items-center h-full lg:w-1/2 md:w-3/4 w-full mx-auto ">
                 <button data-id="Logo-top" onClick={handleNavigateSection}>
                     <ClientOnly>
@@ -120,7 +126,7 @@ function Navbar() {
                     <ToggleTheme />
 
                     <ClientOnly>
-                        <button onClick={handleToggleMenu}>
+                        <button className="z-0" onClick={handleToggleMenu}>
                             {menuState ? (
                                 <AnimatePresence>
                                     <motion.div
