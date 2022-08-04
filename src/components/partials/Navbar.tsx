@@ -33,11 +33,10 @@ const buttonAnimate = {
 
 function Navbar() {
     const { theme } = useTheme();
-
     const [menuState, setMenuState] = useState(false);
-    const refMenu = useRef<HTMLDivElement | null>(null);
+    const refBtn = useRef<HTMLButtonElement | null>(null);
 
-    useOnClickOutside(refMenu, () => {
+    useOnClickOutside(refBtn, () => {
         setMenuState(false);
     });
 
@@ -74,7 +73,7 @@ function Navbar() {
 
             {menuState && (
                 <Teleport>
-                    <div className="h-screen w-screen fixed top-0 left-0 z-40"></div>
+                    <div className="h-screen w-screen fixed top-0 left-0"></div>
                 </Teleport>
             )}
 
@@ -126,7 +125,7 @@ function Navbar() {
                     <ToggleTheme />
 
                     <ClientOnly>
-                        <button className="z-0" onClick={handleToggleMenu}>
+                        <button ref={refBtn} onClick={handleToggleMenu}>
                             {menuState ? (
                                 <AnimatePresence>
                                     <motion.div
@@ -168,7 +167,6 @@ function Navbar() {
                                     duration: 0.2,
                                     ease: 'easeOut',
                                 }}
-                                ref={refMenu}
                                 className={`absolute top-14 -left-[45px] md:hidden`}
                             >
                                 <ul className="flex flex-col items-center px-10 py-8 dark:bg-gray-800 bg-gray-200 space-y-14 rounded-xl shadow-lg tex-2xl">
