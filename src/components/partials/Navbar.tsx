@@ -9,6 +9,7 @@ import { memo, MouseEvent, useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 import ToggleTheme from '~/components/buttons/ToggleTheme';
 import TextLogo from '~/components/icons/TextLogo';
+import { RESUME_URL } from '~/constant';
 
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 
@@ -106,7 +107,7 @@ function Navbar() {
                     </li>
                     <li className="transition-all duration-200 hover:gradient-text hover:scale-[110%]">
                         <a
-                            href="/files/Triet-Ly-CV.pdf"
+                            href={RESUME_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
