@@ -11,7 +11,7 @@ interface HeadProps {
 export default function Head({
     title = "Triet Ly's portfolio",
     description = "Triet Ly's portfolio",
-    image = 'https://res.cloudinary.com/lee1002/image/upload/v1659548382/personal/zldvwhvberbwvhbso2b9.png',
+    image = 'https://res.cloudinary.com/dcykhs0bm/image/upload/v1661391502/personal/wal_limzys.png',
 }: HeadProps) {
     const { asPath } = useRouter();
 

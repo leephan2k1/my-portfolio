@@ -31,6 +31,7 @@ export default function ProjectItem({ reverse, project }: ProjectItemProps) {
                         project?.pjStacks.map((tech) => {
                             return (
                                 <SkillItem
+                                    coverWrapper={tech.techTitle === 'Fastify'}
                                     key={nanoid(5)}
                                     src={tech.techCover}
                                     title={tech.techTitle}

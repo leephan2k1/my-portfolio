@@ -44,6 +44,7 @@ function Skills({ primary_skills, secondary_skills }: SkillsProps) {
                     {secondary_skills.map((skill) => {
                         return (
                             <SkillItem
+                                coverWrapper={skill.skillTitle === 'Fastify'}
                                 key={nanoid(5)}
                                 src={skill.skillCover}
                                 title={skill.skillTitle}
