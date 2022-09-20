@@ -191,7 +191,7 @@ function Navbar() {
                                     </li>
                                     <li>
                                         <a
-                                            href="/files/Triet-Ly-CV.pdf"
+                                            href={RESUME_URL}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
