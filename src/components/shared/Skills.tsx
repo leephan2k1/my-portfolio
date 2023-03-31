@@ -40,7 +40,7 @@ function Skills({ primary_skills, secondary_skills }: SkillsProps) {
                         Able to adapt
                     </h2>
                 </Plx>
-                <div className="flex flex-wrap justify-center w-full h-fit space-x-4 md:space-x-8">
+                <div className="flex gap-y-8 flex-wrap justify-center w-full h-fit space-x-6 md:space-x-8">
                     {secondary_skills.map((skill) => {
                         return (
                             <SkillItem
