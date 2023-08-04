@@ -28,7 +28,7 @@ function LightBanner() {
                         className="bg-gradient-to-r bg-clip-text text-transparent
                         from-green-400 to-blue-500 animate-text"
                     >
-                        Frontend{' '}
+                        JavaScript{' '}
                     </span>
                     Developer.
                 </motion.h2>
