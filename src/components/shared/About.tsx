@@ -1,4 +1,4 @@
-import avt from '/public/images/avt.png';
+import avt from '/public/images/avt.jpg';
 
 interface AboutProps {
     desc: string;
