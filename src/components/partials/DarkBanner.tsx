@@ -3,6 +3,7 @@ import { memo, useEffect, useRef, useState } from 'react';
 //@ts-ignore
 import HALO from 'vanta/dist/vanta.halo.min';
 import Quote from '~/components/shared/Quote';
+import ReactTypingEffect from 'react-typing-effect';
 
 function DarkBanner() {
     const bannerRef = useRef(null);
@@ -53,7 +54,18 @@ function DarkBanner() {
                         className="bg-gradient-to-r bg-clip-text text-transparent
                         from-green-400 to-blue-500 animate-text"
                     >
-                        JavaScript{' '}
+                        <ReactTypingEffect
+                            cursor=""
+                            eraseDelay={1_000}
+                            typingDelay={500}
+                            eraseSpeed={100}
+                            text={[
+                                'Full stack ',
+                                'TypeScript ',
+                                'JavaScript ',
+                                'CSharp',
+                            ]}
+                        />
                     </span>
                     Developer.
                 </motion.h2>

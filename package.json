@@ -22,6 +22,7 @@
         "react-hot-toast": "^2.3.0",
         "react-icons": "^4.4.0",
         "react-plx": "^2.0.1",
+        "react-typing-effect": "^2.0.5",
         "scroller-motion": "^1.1.1",
         "usehooks-ts": "^2.6.0",
         "vanta": "^0.5.22"
@@ -32,6 +33,7 @@
         "@types/node": "17.0.35",
         "@types/react": "18.0.9",
         "@types/react-dom": "18.0.5",
+        "@types/react-typing-effect": "^2.0.7",
         "autoprefixer": "^10.4.7",
         "postcss": "^8.4.14",
         "resize-observer-polyfill": "^1.5.1",
