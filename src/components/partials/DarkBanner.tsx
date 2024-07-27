@@ -59,12 +59,7 @@ function DarkBanner() {
                             eraseDelay={1_000}
                             typingDelay={500}
                             eraseSpeed={100}
-                            text={[
-                                'Full stack ',
-                                'TypeScript ',
-                                'JavaScript ',
-                                'CSharp',
-                            ]}
+                            text={['Full stack ', 'TypeScript ', 'CSharp']}
                         />
                     </span>
                     Developer.

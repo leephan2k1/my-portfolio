@@ -51,6 +51,7 @@ function Navbar() {
             case 'About':
             case 'Projects':
             case 'Contact':
+            case 'Timeline':
                 const elem = document.getElementById(content);
                 const navElem = document.getElementById('Nav');
                 if (elem && navElem) {
@@ -95,6 +96,14 @@ function Navbar() {
                     <li className="transition-all duration-200 hover:gradient-text hover:scale-[110%]">
                         <button data-id="About" onClick={handleNavigateSection}>
                             About
+                        </button>
+                    </li>
+                    <li className="transition-all duration-200 hover:gradient-text hover:scale-[110%]">
+                        <button
+                            data-id="Timeline"
+                            onClick={handleNavigateSection}
+                        >
+                            Journal
                         </button>
                     </li>
                     <li className="transition-all duration-200 hover:gradient-text hover:scale-[110%]">

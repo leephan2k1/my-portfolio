@@ -17,6 +17,7 @@ import { REVALIDATE_TIME } from '~/constant';
 import { connectToDatabase } from '~/utils/connectDb';
 
 import type { NextPage } from 'next';
+import Timeline from '~/components/shared/Timeline';
 
 interface HomeProps {
     desc: string;
@@ -51,6 +52,10 @@ const Home: NextPage<HomeProps> = ({
 
                 <Section sectionId="About">
                     <About desc={desc} />
+                </Section>
+
+                <Section sectionId="Timeline">
+                    <Timeline />
                 </Section>
 
                 <Section sectionId="Skills">
