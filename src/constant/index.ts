@@ -32,6 +32,7 @@ export const coverWrappers = [
     'Microsoft Graph API',
     'Salesforce',
     'AWS Lambda',
+    'XUnit',
 ];
 
 export const blackIcons = ['Fastify'];
