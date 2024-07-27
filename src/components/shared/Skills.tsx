@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 import Plx from 'react-plx';
 import { Skill } from 'types';
 import SkillItem from '~/components/shared/SkillItem';
-import { skillDescPlx } from '~/constant';
+import { blackIcons, coverWrappers, skillDescPlx } from '~/constant';
 import { memo } from 'react';
 
 interface SkillsProps {
@@ -44,7 +44,12 @@ function Skills({ primary_skills, secondary_skills }: SkillsProps) {
                     {secondary_skills.map((skill) => {
                         return (
                             <SkillItem
-                                coverWrapper={skill.skillTitle === 'Fastify'}
+                                coverWrapper={coverWrappers.includes(
+                                    skill.skillTitle,
+                                )}
+                                isBlackIcon={blackIcons.includes(
+                                    skill.skillTitle,
+                                )}
                                 key={nanoid(5)}
                                 src={skill.skillCover}
                                 title={skill.skillTitle}

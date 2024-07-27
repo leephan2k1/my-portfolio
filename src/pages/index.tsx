@@ -24,11 +24,13 @@ interface HomeProps {
     primary_skills: Skill[];
     secondary_skills: Skill[];
     projects: Project[];
+    business_projects: Project[];
 }
 
 const Home: NextPage<HomeProps> = ({
     desc,
     projects,
+    business_projects,
     primary_skills,
     secondary_skills,
 }) => {
@@ -66,7 +68,13 @@ const Home: NextPage<HomeProps> = ({
                 </Section>
 
                 <Section sectionId="Projects">
-                    <Projects projects={projects} />
+                    <Projects
+                        header="Business Projects"
+                        projects={business_projects.reverse()}
+                    />
+                </Section>
+                <Section>
+                    <Projects header="My Projects" projects={projects} />
                 </Section>
 
                 <Section sectionId="Contact">

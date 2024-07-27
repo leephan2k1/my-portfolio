@@ -5,6 +5,7 @@ import { nanoid } from 'nanoid';
 import { ExternalLinkIcon } from '@heroicons/react/outline';
 
 import SkillItem from './SkillItem';
+import { blackIcons, coverWrappers } from '~/constant';
 
 interface ProjectItemProps {
     reverse?: boolean;
@@ -31,7 +32,12 @@ export default function ProjectItem({ reverse, project }: ProjectItemProps) {
                         project?.pjStacks.map((tech) => {
                             return (
                                 <SkillItem
-                                    coverWrapper={tech.techTitle === 'Fastify'}
+                                    coverWrapper={coverWrappers.includes(
+                                        tech.techTitle,
+                                    )}
+                                    isBlackIcon={blackIcons.includes(
+                                        tech.techTitle,
+                                    )}
                                     key={nanoid(5)}
                                     src={tech.techCover}
                                     title={tech.techTitle}
@@ -43,18 +49,31 @@ export default function ProjectItem({ reverse, project }: ProjectItemProps) {
                         })}
                 </div>
                 <div className="flex py-6 space-x-6">
-                    <a href={project.pjDemo} target="_blank" rel="noreferrer">
-                        <button className="shadow-lg space-x-2 flex p-4 bg-blue-500 text-white rounded-lg hover:scale-[110%] transition-all duration-300 absolute-center">
-                            <ExternalLinkIcon className="w-8 h-8" />
-                            <small>Live Demo</small>
-                        </button>
-                    </a>
-                    <a href={project.pjGithub} target="_blank" rel="noreferrer">
-                        <button className="shadow-lg space-x-2 flex p-4 bg-gray-500 text-white rounded-lg hover:scale-[110%] transition-all duration-300 absolute-center">
-                            <FaGithub className="w-8 h-8" />
-                            <small>View Github</small>
-                        </button>
-                    </a>
+                    {project.pjDemo && (
+                        <a
+                            href={project.pjDemo}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <button className="shadow-lg space-x-2 flex p-4 bg-blue-500 text-white rounded-lg hover:scale-[110%] transition-all duration-300 absolute-center">
+                                <ExternalLinkIcon className="w-8 h-8" />
+                                <small>Live Demo</small>
+                            </button>
+                        </a>
+                    )}
+
+                    {project.pjGithub && (
+                        <a
+                            href={project.pjGithub}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <button className="shadow-lg space-x-2 flex p-4 bg-gray-500 text-white rounded-lg hover:scale-[110%] transition-all duration-300 absolute-center">
+                                <FaGithub className="w-8 h-8" />
+                                <small>View Github</small>
+                            </button>
+                        </a>
+                    )}
                 </div>
             </div>
 

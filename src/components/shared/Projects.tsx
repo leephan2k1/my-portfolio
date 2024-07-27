@@ -5,12 +5,13 @@ import { memo } from 'react';
 
 interface ProjectsProps {
     projects: Project[];
+    header: string;
 }
 
-function Projects({ projects }: ProjectsProps) {
+function Projects({ projects, header }: ProjectsProps) {
     return (
         <div className="w-full min-h-[500px] my-32">
-            <h1 className="text-center text-6xl font-secondary">My Projects</h1>
+            <h1 className="text-center text-6xl font-secondary">{header}</h1>
             <div className="w-full mx-auto md:px-40 my-20 space-y-20 lg:space-y-48">
                 {projects &&
                     projects.length &&
