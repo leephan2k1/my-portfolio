@@ -103,7 +103,7 @@ function Navbar() {
                             data-id="Timeline"
                             onClick={handleNavigateSection}
                         >
-                            Journal
+                            Journey
                         </button>
                     </li>
                     <li className="transition-all duration-200 hover:gradient-text hover:scale-[110%]">
