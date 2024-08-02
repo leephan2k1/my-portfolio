@@ -22,8 +22,8 @@
         "react-hot-toast": "^2.3.0",
         "react-icons": "^4.4.0",
         "react-plx": "^2.0.1",
-        "react-typing-effect": "^2.0.5",
         "scroller-motion": "^1.1.1",
+        "typewriter-effect": "^2.21.0",
         "usehooks-ts": "^2.6.0",
         "vanta": "^0.5.22"
     },

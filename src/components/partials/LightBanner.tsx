@@ -1,10 +1,10 @@
-import React from 'react';
+import { motion } from 'framer-motion';
+import { memo } from 'react';
+import Typewriter from 'typewriter-effect';
 import { useEffectOnce } from 'usehooks-ts';
 import { renderCanvas } from '~/utils/renderCanvas';
-import { motion } from 'framer-motion';
 import Quote from '../shared/Quote';
-import { memo } from 'react';
-import ReactTypingEffect from 'react-typing-effect';
+import { typewriterOptions } from '~/constant';
 
 function LightBanner() {
     useEffectOnce(() => {
@@ -24,24 +24,7 @@ function LightBanner() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6, duration: 1.5 }}
                 >
-                    I'm a{' '}
-                    <span
-                        className="bg-gradient-to-r bg-clip-text text-transparent
-                        from-green-400 to-blue-500 animate-text"
-                    >
-                        <ReactTypingEffect
-                            cursor=""
-                            eraseDelay={1_000}
-                            typingDelay={500}
-                            eraseSpeed={100}
-                            text={[
-                                'Full stack ',
-                                'TypeScript ',
-                                'JavaScript ',
-                                'CSharp',
-                            ]}
-                        />
-                    </span>
+                    I'm a <Typewriter options={typewriterOptions} />
                     Developer.
                 </motion.h2>
 
