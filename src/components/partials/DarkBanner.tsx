@@ -50,7 +50,14 @@ function DarkBanner() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6, duration: 1.5 }}
                 >
-                    I'm a <Typewriter options={typewriterOptions} />
+                    I'm a{' '}
+                    <Typewriter
+                        options={{
+                            wrapperClassName: `bg-gradient-to-r bg-clip-text text-transparent
+                        from-green-400 to-blue-500 animate-text inline-block`,
+                            ...typewriterOptions,
+                        }}
+                    />
                     Developer.
                 </motion.h2>
                 <Quote styles="absolute left-1/2 -translate-x-1/2 top-[70%] w-full" />

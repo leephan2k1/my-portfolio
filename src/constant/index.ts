@@ -40,8 +40,6 @@ export const coverWrappers = [
 export const blackIcons = ['Fastify'];
 
 export const typewriterOptions: Partial<Options> = {
-    wrapperClassName: `bg-gradient-to-r bg-clip-text text-transparent
-    from-green-400 to-blue-500 animate-text inline-block`,
     strings: ['Full stack ', 'TypeScript ', 'JavaScript ', 'CSharp '],
     autoStart: true,
     loop: true,
