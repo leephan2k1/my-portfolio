@@ -44,7 +44,7 @@ export default function Timeline() {
                     icon={<AcademicCapIcon className="w-8 h-8" />}
                     title="2023"
                     desc={[
-                        'Graduated with excellence with a GPA of 4.6',
+                        'Graduated with excellence with a GPA of 3.71',
                         'Honed English skills with a TOEIC score of 800',
                         'Intern at TPS Software',
                     ]}
