@@ -69,7 +69,7 @@ const Home: NextPage<HomeProps> = ({
 
                 <Section sectionId="Projects">
                     <Projects
-                        header="Business Projects"
+                        header="Work Experience"
                         projects={business_projects.reverse()}
                     />
                 </Section>

@@ -35,9 +35,10 @@ export const coverWrappers = [
     'Salesforce',
     'AWS Lambda',
     'XUnit',
+    'Apache Kafka',
 ];
 
-export const blackIcons = ['Fastify'];
+export const blackIcons = ['Fastify', 'Apache Kafka'];
 
 export const typewriterOptions: Partial<Options> = {
     strings: ['Full stack ', 'TypeScript ', 'JavaScript ', 'CSharp '],
