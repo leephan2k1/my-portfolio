@@ -39,8 +39,8 @@ function DarkBanner() {
     return (
         <>
             <div className="relative w-full min-h-screen" ref={bannerRef}>
-                <div className="relative-center absolute-center overflow-hidden top-[38%] w-72 h-72 rounded-full z-10">
-                    <h1 className="font-bold text-6xl hover:scale-[110%] transition-all duration-200 select-none ">
+                <div className="relative-center absolute-center overflow-hidden top-[38%] w-[30rem] h-72 rounded-full z-10">
+                    <h1 className="font-bold text-6xl hover:scale-[110%] transition-all duration-200 select-none text-nowrap">
                         Lý (Lee) Phan
                     </h1>
                 </div>
