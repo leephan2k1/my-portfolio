@@ -1,9 +1,4 @@
-import {
-    FaFacebookSquare,
-    FaGithub,
-    FaTwitter,
-    FaDiscord,
-} from 'react-icons/fa';
+import { FaFacebookSquare, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
     return (
@@ -14,7 +9,7 @@ export default function Footer() {
 
             <div className="w-1/2 absolute-center mx-auto py-6 gap-10">
                 <a
-                    href="https://www.facebook.com/leephan2001"
+                    href="https://www.facebook.com/lee.phan.thanh.triet"
                     target="_blank"
                     rel="noreferrer"
                     className="absolute-center hover:scale-[110%] transition-all duration-300"
@@ -22,12 +17,12 @@ export default function Footer() {
                     <FaFacebookSquare className="w-12 h-12" />
                 </a>
                 <a
-                    href="https://twitter.com/lee_dev1002"
+                    href="https://www.linkedin.com/in/lee-phan"
                     target="_blank"
                     rel="noreferrer"
                     className="absolute-center hover:scale-[110%] transition-all duration-300"
                 >
-                    <FaTwitter className="w-12 h-12" />
+                    <FaLinkedin className="w-12 h-12" />
                 </a>
                 <a
                     href="https://github.com/leephan2k1"
@@ -36,14 +31,6 @@ export default function Footer() {
                     className="absolute-center hover:scale-[110%] transition-all duration-300"
                 >
                     <FaGithub className="w-12 h-12" />
-                </a>
-                <a
-                    href="https://discord.com/users/lee2001#9563"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="absolute-center hover:scale-[110%] transition-all duration-300"
-                >
-                    <FaDiscord className="w-12 h-12" />
                 </a>
             </div>
         </div>

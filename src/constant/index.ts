@@ -42,7 +42,7 @@ export const coverWrappers = [
 export const blackIcons = ['Fastify', 'Apache Kafka', 'n8n'];
 
 export const typewriterOptions: Partial<Options> = {
-    strings: ['Full stack ', 'TypeScript ', 'JavaScript ', 'CSharp '],
+    strings: ['Full stack ', 'TypeScript ', 'JavaScript '],
     autoStart: true,
     loop: true,
     cursor: ' ',
